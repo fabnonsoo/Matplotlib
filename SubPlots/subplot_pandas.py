@@ -1,0 +1,29 @@
+# This code was re-written as a SUBPLOT in "sub_plot1.py" & "sub_plot2.py"
+
+
+import pandas as pd
+from matplotlib import pyplot as plt
+
+plt.style.use('seaborn')
+
+data = pd.read_csv('sodatamedianpay.csv')
+ages = data['Ages']
+dev_salaries = data['All_Devs']
+py_salaries = data['Python']
+js_salaries = data['JavaScript']
+
+plt.plot(ages, py_salaries, label='Python')
+plt.plot(ages, js_salaries, label='JavaScript')
+
+plt.plot(ages, dev_salaries, color='#444444',
+         linestyle='--', label='All Devs')
+
+plt.legend()
+
+plt.title('Median Salary (USD) by Age')
+plt.xlabel('Ages')
+plt.ylabel('Median Salary (USD)')
+
+plt.tight_layout()
+
+plt.show()
